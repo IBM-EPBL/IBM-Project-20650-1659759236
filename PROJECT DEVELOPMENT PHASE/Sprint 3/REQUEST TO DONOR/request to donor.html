@@ -1,0 +1,266 @@
+<?php
+session_start();
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="CSS\styleupdatedonor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+<div class="header fix">
+<img src="Image\logo.png">
+<form>
+<div class="navbtn">
+<i class="fa fa-bars fa-2x " aria-hidden="true" onclick="openNav()"></i>
+</div>
+</form>
+</div>
+<div class="nav fix">
+<ul>
+<li><a href="donor_page.php" >Donor History</a></li>
+<li><a href="health_report.php">Health Report</a></li>
+<li><a href="pending_request_donor.php">Pending Request</a></li>
+<li><a href="d_blood_tips.php">Blood Tips</a></li>
+<li><a href="d_contribute.php">Contribute</a></li>
+<li class="active"><a href="">More &nabla;</a>
+<ul>
+<li><a href="d_about_us.php">About Us</a></li>
+<li><a href="d_get_in_touch.php">Contact Us</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div class="heading fix">
+<label>Update Details</label>
+</div>
+<div id="mySidenav" class="sidenav">
+  <a  class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="update_donor.php" class="a"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+  <a href="delete_donor.php" class="b"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+<i class="fa fa-id-card-o" aria-hidden="true" style="color:white;">
+&nbsp;
+</i>
+<i class="fa fa-user" aria-hidden="true" style="color:white;">
+&nbsp;
+</i>
+<i class="fa fa-envelope" aria-hidden="true" style="color:white;">
+&nbsp;
+</i>
+<i class="fa fa-phone" aria-hidden="true" style="color:white;">
+&nbsp;
+</i>
+<i class="fa fa-calendar" aria-hidden="true" style="color:white;">
+&nbsp;
+</i>
+<i class="fa fa-venus-mars" aria-hidden="true" style="color:white;">
+&nbsp;
+</i>
+<i class="fa fa-tint" aria-hidden="true" style="color:white;">
+&nbsp;
+</i>
+<i class="fa fa-location-arrow" aria-hidden="true" style="color:white;">
+&nbsp;
+</i>
+<div class="btn btn1" >
+<a href="login_donor.php"><input type="button" name="Signout" value="Sign Out"></a>
+</div>
+</div>
+<div class="outerbox">
+<div class="fixedbox">
+<span class="content">
+<h4>Important Note..!!!</h4>
+<p><i class="fa fa-times" aria-hidden="true"></i>Password can not Change.</p>
+<p><i class="fa fa-times" aria-hidden="true"></i>Confirm Password can not Change.</p>
+<p><i class="fa fa-times" aria-hidden="true"></i>City can not Change.</p>
+<p><i class="fa fa-times" aria-hidden="true"></i>State can not Change.</p>
+<p><i class="fa fa-times" aria-hidden="true"></i>Blood group can not Change.</p>
+<p><i class="fa fa-times" aria-hidden="true"></i>Weight can not Change.</p>
+</span>
+</div>
+<div class="scrollbox">
+<div class="registerdonor">
+<form action="update_donor_process.php" method="POST">
+<div class="login">
+<h3>Login Details</h3>
+<table>
+<tr>
+<td colspan="2">
+<label class="username">User Name</label>
+<input type="text" name="user_name" required pattern="^[A-Za-z0-9._%+-@]{5,10}$" title="Enter a username between 5 to 10 letter" value="">
+</td>
+</tr>
+<tr>
+<td>
+<label>Full Name</label>
+<input type="text" name="user_full_name" required pattern="[A-z ]+$" title="Use only character & whitespace" value=""
+</td>
+<td>
+<label>Email Id</label>
+<input type="email" name="user_email" required pattern="[A-Za-z0-9._%+-]+@[A-z0-9.-]+\.[a-z]{2,}$" title="Email id is not Valid" value="">
+</td>
+</tr>
+<tr>
+<td>
+<label>Password</label>
+<input type="password"name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" value="" readonly>
+</td>
+<td>
+<label>Confirm Password</label>
+<input type="text" name="confirm_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" value="" readonly>
+</td>
+</tr>
+</table>
+</div>
+<div class="contact">
+<h3>Contact Details</h3>
+<table>
+<tr>
+<td>
+<label>Mobile Number</label>
+<input type="text" name="user_number" required pattern="^[1-9]{1}[0-9]{9}$" title="Number is not valid" value="">
+</td>
+<td rowspan="2">
+<label>Address</label>
+<textarea name="Address" placeholder="" required value = "">
+</textarea>
+</td>
+</tr>
+<tr>
+<td>
+<label>Pincode</label>
+<input type="text" name="pincode" required pattern="^[0-9]{6}$" title="Pincode is not valid" value=" ">
+</td>
+</tr>
+<tr>
+<td>
+<label>City</label>
+<input type="text" name="city" value="CHENNAI" readonly value="enter city>
+</td>
+<td>
+<tr>
+<label>State</label>
+<input type="text" name="state" value="Tamilnadu" readonly value="enter state">
+</td>
+</tr>
+</table>
+</div>
+<div class="personal">
+<h3>Personal Details</h3>
+<table>
+<tr>
+<td>
+<label>Date Of Birth</label>
+<input type="date" name="date_of_birth" required value="enter dob">
+</td>
+<td>
+<label>Gender:</label>
+<div class="radio">
+<?php
+if($_SESSION['gender']=='Male')
+{
+
+<input type="radio" class="radio2" name="gender" value=""><span class="radioname" required></span>
+
+<input type="radio" name="gender" class="radio1" value="Male"><span class="radioname" required>Male</span>
+<input type="radio" class="radio2" name="gender" value="Female" checked><span class="radioname" required>Female</span>
+
+
+
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<label>Blood Group</label>
+<input type="text" list="bloodgroup" name="blood_group" placeholder="" required value="" readonly>
+<datalist id="bloodgroup">
+<option value="A+"></option>
+<option value="A-"></option>
+<option value="AB+"></option>
+<option value="B+"></option>
+<option value="B-"></option>
+<option value="O+"></option>
+<option value="O-"></option>
+</datalist>
+</td>
+<td>
+<label>Weight In Kg </label>
+<input type="number" name="weight" required value="weight in kg" readonly>
+</td>
+</tr>
+</table>
+</div>
+<span>
+<input type="checkbox" name="terms" id="checkbox" required>
+</span><p>I agree to have my contact details broadcasted to the registered donors of PGHS.net</p>
+
+<div class="btnn">
+<input type="submit" name="submit" value="Update">
+<input type="reset" name="submit" value="Reset">
+</div>
+</form>
+</div>
+
+</div>
+</div>
+
+<!-- Responsive Table -->
+<div class="rregisterdonor">
+<form action="process.php" method="POST">
+
+<div class="rlogin">
+<h3>Login Details</h3>
+<table>
+<tr>
+<td >
+<label class="username">User Name</label>
+<input type="text" name="user_name" required pattern="^[A-Za-z0-9._%+-@]{5,10}$" title="Enter a username between 5 to 10 letter" value="">
+</td>
+</tr>
+<tr>
+<td>
+<label>Full Name</label>
+<input type="text" name="user_full_name" required pattern="[A-z ]+$" title="Use only character & whitespace" value="">
+</tr>
+<tr>
+<td>
+<label>Email Id</label>
+<input type="email" name="user_email" required pattern="[A-Za-z0-9._%+-]+@[A-z0-9.-]+\.[a-z]{2,}$" title="Email id is not Valid" value="">
+</td>
+</tr>
+<tr>
+<td>
+<label>Password</label>
+<input type="password"name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" value="" readonly>
+</td>
+</tr>
+<tr>
+<td>
+<label>Confirm Password</label>
+<input type="text" name="confirm_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" value="" readonly>
+</td>
+</tr>
+</table>
+</div>
+<div class="rcontact">
+<h3>Contact Details</h3>
+<table>
+<tr>
+<td>
+<label>Mobile Number</label>
+<input type="text" name="user_number" required pattern="^[1-9]{1}[0-9]{9}$" title="Number is not valid" value="">
+</td>
+</tr>
+<tr>
+<td>
+<label>Address</label>
+<textarea> </textarea >                                                          
+                                                         
+</html> 
