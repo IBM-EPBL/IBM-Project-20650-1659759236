@@ -20,8 +20,6 @@
      and helping the needy by notifying the current donors list, would be a helping hand.In regard to the problem faced, an application is to be 
      built which would take the donor details, store them and inform them upon a request.
      
-   PROJECT DEVELOPMENT
    
-      work in progress . . .
 
 
